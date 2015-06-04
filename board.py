@@ -12,10 +12,6 @@ class Board:
         return [row[col_number] for row in self.board]
 
     def get_diag(self, diag_number):
-        row_start = 0
         col_start = 2*diag_number
-        row_inc = 1
         col_inc = -1**diag_number
-        diag = []
-        for i in range(0, 2):
-            diag.append(self.board[row_start+i*row_inc][col_start+i*col_inc])
+        return [self.board[i][col_start + i*col_inc] for i in range(0, 2)]
