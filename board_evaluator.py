@@ -1,10 +1,10 @@
-# from board import Board
+from board import Board
 
 
 def detect_victory_chance(line):
-    if line.count("_") != 1:
+    if line.count("_") != 1 or line.count("X") == 1:
         return ("", -1)
-    win_index = line.find("_")
+    win_index = line.index("_")
     return (line[(win_index + 1) % 3], win_index)
 
 
@@ -37,3 +37,12 @@ def victory_chances(board):
             if victory[0]:
                 victories.append(victory)
     return victories
+
+
+text_state = ["XO_",
+              "_OX",
+              "X_O"]
+board = Board(text_state)
+for row in board.text_state:
+    print(row)
+print(victory_chances(board))
