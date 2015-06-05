@@ -1,7 +1,7 @@
 import random
 import sys
 from board import Board, import_tic_tac_toe_board
-import board_evaluator
+#import board_evaluator
 
 
 def debug_print(information):
