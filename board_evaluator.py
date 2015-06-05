@@ -38,11 +38,11 @@ def victory_chances(board):
                 victories.append(victory)
     return victories
 
-
-text_state = ["XO_",
-              "_OX",
-              "X_O"]
-board = Board(text_state)
-for row in board.text_state:
-    print(row)
-print(victory_chances(board))
+if __name__ == "__main__":
+    text_state = ["XO_",
+                  "_OX",
+                  "X_O"]
+    board = Board(text_state)
+    for row in board.text_state:
+        print(row)
+    print(victory_chances(board))

@@ -7,7 +7,6 @@ class Board:
         self.board = [[value for value in row] for row in text_state]
 
     def get_value(self, coordinates):
-        print(coordinates)
         return self.board[coordinates[0]][coordinates[1]]
 
     def get_row(self, row_number):
