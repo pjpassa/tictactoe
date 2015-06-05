@@ -15,12 +15,12 @@ class Board:
     def get_col(self, col_number):
         return [row[col_number] for row in self.board]
 
-    def get_coord_diag(self, diag_number, index):
-        return (index, 2 * diag_number + index * -1**diag_number)
-
     def get_diag(self, diag_number):
         return [self.get_value(self.get_coord_diag(diag_number, i))
                 for i in range(2)]
+
+    def get_coord_diag(self, diag_number, index):
+        return (index, 2 * diag_number + index * -1**diag_number)
 
     @property
     def text_state(self):
