@@ -1,3 +1,5 @@
 .direnv/
 .idea/
 matrix_math.py
+__pycache__/
+
