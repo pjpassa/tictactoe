@@ -1,26 +1,39 @@
-def detect_victory_chance(self, set):
-    if set[0] == set[1] or set[0] == set[2]:
-        return set[0]
-    elif set[1] == set[2]:
-        return set[1]
-    return "_"
+# from board import Board
 
 
-def row_victory_chance(self, board):
-    return(self.detect_victory_chance(board.get_row(row_number)))
+def detect_victory_chance(line):
+    if line.count("_") != 1:
+        return ("", -1)
+    win_index = line.find("_")
+    return (line[(win_index + 1) % 3], win_index)
 
 
-def col_victory_chance(self, col_number):
-    return(self.detect_victory_chance(self.board.get_col(col_number)))
+def row_victory_chance(board, row_number):
+    victory = detect_victory_chance(board.get_row(row_number))
+    return (victory[0], (row_number, victory[1]))
 
 
-def diag_victory_chance(self, diag_number):
-    return(self.detect_victory_chance(self.board.get_diag(diag_number)))
+def col_victory_chance(board, col_number):
+    victory = detect_victory_chance(board.get_col(col_number))
+    return (victory[0], (victory[1], col_number))
 
 
-def victory_chances(self):
+def diag_victory_chance(board, diag_number):
+    victory = detect_victory_chance(board.get_diag(diag_number))
+    return (victory[0], board.get_coord_diag(diag_number, victory[1]))
+
+
+def victory_chances(board):
     victories = []
-    for index in range(2):
-        row_victory_chance
-        if row_victory_chance(row_num):
-            victories.append(())
+    for index in range(3):
+        victory = row_victory_chance(board, index)
+        if victory[0]:
+            victories.append(victory)
+        victory = col_victory_chance(board, index)
+        if victory[0]:
+            victories.append(victory)
+        if index < 2:
+            victory = diag_victory_chance(board, index)
+            if victory[0]:
+                victories.append(victory)
+    return victories
