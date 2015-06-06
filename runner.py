@@ -100,3 +100,4 @@ if __name__ == '__main__':
     while not is_game_over():
         turn(PLAYERS[current_player], bots[PLAYERS[current_player]])
         current_player = 1 if current_player == 0 else 0
+    print_board()
