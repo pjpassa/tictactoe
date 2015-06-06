@@ -1,4 +1,5 @@
 import sys
+import random
 
 
 def debug_print(information):
@@ -17,7 +18,6 @@ debug_print(second_row)
 debug_print(third_row)
 
 # Outputting the coordinates of your board
-import random
 if random.random() > .5:
     print("0 1")
 else:
