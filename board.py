@@ -22,6 +22,11 @@ class Board:
     def get_coord_diag(self, diag_number, index):
         return (index, 2 * diag_number + index * (-1)**diag_number)
 
+    def make_move(self, player, coordinates):
+        current_board = self.board[:]
+        current_board[coordinates[0]][coordiantes[1]] = player
+        return Board(current_board)
+
     @property
     def text_state(self):
         return [''.join(row) for row in self.board]
