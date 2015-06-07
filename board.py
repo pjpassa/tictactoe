@@ -23,7 +23,7 @@ class Board:
         return (index, 2 * diag_number + index * (-1)**diag_number)
 
     def make_move(self, player, coordinates):
-        current_board = self.board[:]
+        current_board = [[col for col in row] for row in self.board]
         current_board[coordinates[0]][coordinates[1]] = player
         return Board(current_board)
 
