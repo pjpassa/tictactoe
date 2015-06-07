@@ -24,8 +24,16 @@ class Board:
 
     def make_move(self, player, coordinates):
         current_board = self.board[:]
-        current_board[coordinates[0]][coordiantes[1]] = player
+        current_board[coordinates[0]][coordinates[1]] = player
         return Board(current_board)
+
+    def get_empty_squares(self):
+        squares = []
+        for row_num, row in enumerate(self.board):
+            for col_num, col in enumerate(row):
+                if col == "_":
+                    squares.append((row_num, col_num))
+        return squares
 
     @property
     def text_state(self):

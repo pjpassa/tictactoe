@@ -43,6 +43,7 @@ if __name__ == "__main__":
                   "_OX",
                   "X_O"]
     board = Board(text_state)
+    print(board.get_empty_squares())
     for row in board.text_state:
         print(row)
     print(victory_chances(board))
